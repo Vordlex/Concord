@@ -9,7 +9,7 @@ const websocketConnect = (): any => {
       JSON.stringify({
         op: 2,
         d: {
-          token: process.env.REACT_APP_TOKEN, //<<< TOKEN HERE
+          token: process.env.REACT_APP_DISCORD_TOKEN, //<<< TOKEN HERE
           capabilities: 4093,
           properties: {
             os: "Windows",
