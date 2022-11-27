@@ -11,7 +11,7 @@
     />
     <meta
       http-equiv="Content-Security-Policy"
-      content="default-src 'self'; connect-src ws:; img-src * 'self' data: https:; script-src 'self' 'unsafe-inline'"
+      content="default-src 'self'; connect-src ws:; img-src * 'self' data: https; script-src 'self' 'unsafe-inline'; font-src 'self'; style-src * data: blob: 'unsafe-inline';"
     />
     <meta
       http-equiv="X-Content-Security-Policy"
@@ -36,7 +36,7 @@
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
-    <div id="root"></div>
+    <div id="root" style="background-color: #424549;"></div>
     <!--
       This HTML file is a template.
       If you open it directly in the browser, you will see an empty page.

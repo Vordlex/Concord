@@ -1,0 +1,82 @@
+:root {
+  --iconsMargin: 0.3em;
+  --iconsMarginTop: 0.7em;
+  --iconAnimationTime: 0.3s;
+}
+
+.guilds {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  background-color: #1e2124;
+  height: 72px;
+}
+.icons {
+  border-radius: 50%;
+  margin: var(--iconsMargin);
+  cursor: pointer;
+  animation: reverseExpand;
+  animation-duration: var(--iconAnimationTime);
+  margin-top: var(--iconsMarginTop);
+}
+.icons:hover {
+  animation: expand;
+  animation-duration: var(--iconAnimationTime);
+  animation-fill-mode: forwards;
+}
+.discordIcon {
+  background-color: #424549;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  cursor: pointer;
+  animation: expandAndColorReverse;
+  animation-duration: 0.45s;
+  animation-fill-mode: forwards;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: var(--iconsMargin);
+  color: #ffffff;
+  margin-top: var(--iconsMarginTop);
+}
+.discordIcon:hover {
+  animation: expandAndColor;
+  animation-duration: var(--iconAnimationTime);
+  animation-fill-mode: forwards;
+}
+.dirToGuildsSepatator {
+  height: 32px;
+  width: 2px;
+  border-radius: 1px;
+  background-color: #424549;
+  margin: var(--iconsMargin);
+  margin-top: 1.2em;
+}
+
+/* keyframes */
+@keyframes expand {
+  100% {
+    border-radius: 30%;
+  }
+}
+@keyframes reverseExpand {
+  0% {
+    border-radius: 30%;
+  }
+}
+@keyframes expandAndColor {
+  100% {
+    border-radius: 30%;
+    background-color: #7289da;
+  }
+}
+@keyframes expandAndColorReverse {
+  0% {
+    border-radius: 30%;
+    background-color: #7289da;
+  }
+  50% {
+    background-color: #7289da;
+  }
+}

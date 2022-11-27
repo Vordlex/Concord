@@ -1,9 +1,0 @@
-.guilds {
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-}
-
-.icons {
-    border-radius: 50%;
-}
