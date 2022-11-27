@@ -1,18 +1,15 @@
 import { wsResponse } from "../../types"
-import { config } from "../config"
 import store from "../store"
 
 const websocketConnect = (): any => {
   const client = new WebSocket("wss://gateway.discord.gg/?encoding=json&v=9")
 
   client.onopen = (connection) => {
-    console.log(connection)
-
     client.send(
       JSON.stringify({
         op: 2,
         d: {
-          token: config.token, //<<< TOKEN HERE
+          token: process.env.REACT_APP_TOKEN, //<<< TOKEN HERE
           capabilities: 4093,
           properties: {
             os: "Windows",
