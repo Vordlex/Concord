@@ -15,12 +15,12 @@ const ServerIcon = ( props: any ) => {
             height="48"
             alt=""
             onMouseEnter={ () => {
-            setImageFormat("gif")
-            console.log(imageFormat)
+                if ( !props.guild.properties.icon.startsWith("a_") ) return
+                setImageFormat("gif")
             }}
             onMouseLeave={ () => {
-            setImageFormat("webp")
-            console.log(imageFormat)
+                if ( !props.guild.properties.icon.startsWith("a_") ) return
+                setImageFormat("webp")
             } }
         />
     )
