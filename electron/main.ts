@@ -20,6 +20,7 @@ function createWindow() {
     win.loadURL("http://localhost:3000/index.html")
 
     win.webContents.openDevTools()
+    win.maximize()
 
     require("electron-reload")(__dirname, {
       electron: join(

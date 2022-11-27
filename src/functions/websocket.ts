@@ -1,7 +1,8 @@
 import { wsResponse } from "../../types"
 import { config } from "../config"
+import store from "../store"
 
-const websocketConnect = () => {
+const websocketConnect = (): any => {
   const client = new WebSocket("wss://gateway.discord.gg/?encoding=json&v=9")
 
   client.onopen = (connection) => {
@@ -53,23 +54,15 @@ const websocketConnect = () => {
   client.onmessage = async (event) => {
     const data = JSON.parse(event.data) as wsResponse
 
-    console.log(data)
-
     switch (data.t) {
       case "READY": {
-        const serverNames = data.d.guilds
-          .filter((guild) => guild.properties !== undefined)
-          .map((guild) => {
-            return guild.properties.name
-          })
-        console.log(serverNames)
-
+        store.dispatch({ type: "READY", data: data })
         break
       }
       case "READY_SUPPLEMENTAL":
         break
       default:
-        console.log(data.t)
+        // console.log(data.t)
         break
     }
   }

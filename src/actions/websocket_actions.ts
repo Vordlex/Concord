@@ -1,0 +1,2 @@
+export const READY = "READY"
+export const READY_SUPPLEMENTAL = "READY_SUPPLEMENTAL"
