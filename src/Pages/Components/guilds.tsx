@@ -1,6 +1,7 @@
 import { useEffect } from "react"
 import { connect } from "react-redux"
 import { ready } from "../../../types/ready"
+import "./guilds.css"
 
 const Guilds = (...props: any) => {
   const {
@@ -20,9 +21,20 @@ const Guilds = (...props: any) => {
   // return <div></div>
 
   return (
-    <div>
+    <div className="guilds">
       {websocket_redux.d?.guilds.map((guild) => {
-        return <div key={guild.id}>{guild.properties.name}</div>
+        return (
+          <div key={guild.id}>
+            <img
+              className="icons"
+              src={`https://cdn.discordapp.com/icons/${guild.id}/${guild.properties.icon}.webp?size=240`}
+              title={guild.properties.name || ""}
+              width="48"
+              height="48"
+              alt=""
+            />
+          </div>
+        )
       })}
     </div>
   )
