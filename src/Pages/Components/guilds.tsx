@@ -2,6 +2,7 @@ import { useState } from "react"
 import { connect } from "react-redux"
 import { ready } from "../../../types/ready"
 import styles from "./guilds.module.css"
+import ServerIcon from "./serverIcon"
 
 const Guilds = (...props: any) => {
   const {
@@ -10,7 +11,7 @@ const Guilds = (...props: any) => {
     websocket_redux: ready
   } = props[0]
 
-  // const [imageFormat, setImageFormat] = useState("webp")
+  
 
   return (
     <div className={styles.guilds}>
@@ -30,28 +31,9 @@ const Guilds = (...props: any) => {
       </div>
       <div className={styles.dirToGuildsSepatator} />
       {websocket_redux.d?.guilds.map((guild) => {
-        let imageFormat = "webp"
         return (
           <div key={guild.id}>
-            <img
-              className={styles.icons}
-              onMouseOver={() => {
-                if (guild.properties.icon.startsWith("a_")) {
-                  // setImageFormat("gif")
-                imageFormat = "gif"
-
-                }
-              }}
-              onMouseOut={() => {
-                // setImageFormat("webp")
-                imageFormat = "webp"
-              }}
-              src={`https://cdn.discordapp.com/icons/${guild.id}/${guild.properties.icon}.${imageFormat}?size=240`}
-              title={guild.properties.name || ""}
-              width="48"
-              height="48"
-              alt=""
-            />
+            <ServerIcon guild={guild}/>
           </div>
         )
       })}
