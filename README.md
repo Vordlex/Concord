@@ -9,6 +9,7 @@ This project was made with Electron, React an Typescript. Our purpose is to chan
 ```
 git clone https://github.com/Vordlex/Concord
 cd Concord
+npm install
 ```
 
 ## Scripts ( yarn / npm )
