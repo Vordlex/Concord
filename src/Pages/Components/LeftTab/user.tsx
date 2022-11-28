@@ -19,7 +19,7 @@ const UserIcon = ({
   else if ( status == "idle" ) statusColor = "#f5b858"
   else if ( status == "dnd" ) statusColor = "#e84244"
   else if ( status == "invisible" ) statusColor = "#6d7784"
-  else statusColor = "#3ca05c"
+  else statusColor = "#6d7784"
   
   return (
     <div className={styles.userContainer}
