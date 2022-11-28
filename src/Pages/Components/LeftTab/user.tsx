@@ -1,6 +1,7 @@
 import { useState } from "react"
 import { users } from "../../../../types/ready"
 import styles from "./LeftTab.module.css"
+import { status } from "../../../../types/generics/status"
 
 const UserIcon = ({
   avatar,
@@ -23,19 +24,18 @@ const UserIcon = ({
         setImageFormat("webp")
     }}
     >
-      {
-        (
-          <img
-            className={styles.icon}
-            src={`https://cdn.discordapp.com/avatars/${id}/${avatar}.${imageFormat}?size=80`}
-            title={username.toString()}
-            width="48"
-            height="48"
-            alt=""   
-          />
-        )
-      }
-      <div className={styles.userName} >{username}</div>      
+
+      <img
+        className={styles.icon}
+        src={`https://cdn.discordapp.com/avatars/${id}/${avatar}.${imageFormat}?size=80`}
+        title={username.toString()}
+        width="48"
+        height="48"
+        alt=""   
+      />
+      <div className={styles.status} ></div>
+
+    <div className={styles.userName} >{username}</div>      
     </div>
   )
 }
