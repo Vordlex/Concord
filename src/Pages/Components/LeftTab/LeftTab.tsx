@@ -1,7 +1,7 @@
 import { connect } from "react-redux"
 import { stateType } from "../../../reducers/websocket_reducers"
 import styles from "./LeftTab.module.css"
-import UserIcon from "./userIcon"
+import UserIcon from "./user"
 
 const LeftTab = (...props: any) => {
   const {
@@ -21,17 +21,14 @@ const LeftTab = (...props: any) => {
         if (user) {
           if (user.bot === true) return ""
           return (
-            <div key={dm.id} className={styles.userContainer}>
-              <UserIcon
-                id={user.id}
-                username={user.username}
-                avatar={user.avatar}
-                bot={user.bot}
-                discriminator={user.discriminator}
-                public_flags={user.public_flags}
-              />
-              <div>{user.username}</div>
-            </div>
+            <UserIcon
+              id={user.id}
+              username={user.username}
+              avatar={user.avatar}
+              bot={user.bot}
+              discriminator={user.discriminator}
+              public_flags={user.public_flags}
+            />
           )
         }
         return ""
