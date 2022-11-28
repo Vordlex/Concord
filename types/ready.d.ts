@@ -36,7 +36,7 @@ export type ready = {
   t: "READY"
 }
 
-type users = {
+export type users = {
   avatar: string
   bot: boolean
   discriminator: string
@@ -140,7 +140,7 @@ type read_state = {
   entries: entries_read_state
 }
 
-type private_channels = {
+export type private_channels = {
   flags: number
   id: string
   last_message_id: string

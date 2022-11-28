@@ -1,6 +1,11 @@
 import { wsResponse } from "../../types/"
 import { guilds } from "../../types/generics/guilds"
-import { ready, relationships } from "../../types/ready"
+import {
+  private_channels,
+  ready,
+  relationships,
+  users,
+} from "../../types/ready"
 import { READY, READY_SUPPLEMENTAL } from "../actions/websocket_actions"
 
 export type stateType = {
@@ -12,6 +17,8 @@ export type stateType = {
     }
   }
   relationships: relationships[]
+  private_channels: private_channels[]
+  users: users[]
   LeftTabEnabled: boolean
   LeftTabContent: "FRIENDS" | "CHANNELS"
 }
@@ -25,6 +32,8 @@ const initialState: stateType = {
     },
   },
   relationships: [],
+  private_channels: [],
+  users: [],
   LeftTabEnabled: true,
   LeftTabContent: "FRIENDS",
 }
@@ -42,6 +51,8 @@ export const websocket_redux = (
         friend_suggestion_count: data.d.friend_suggestion_count,
         consents: data.d.consents,
         relationships: data.d.relationships,
+        private_channels: data.d.private_channels,
+        users: data.d.users,
       }
     case READY_SUPPLEMENTAL:
       return state
