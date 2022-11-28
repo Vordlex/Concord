@@ -28,6 +28,8 @@ const LeftTab = (...props: any) => {
               bot={user.bot}
               discriminator={user.discriminator}
               public_flags={user.public_flags}
+
+              key={dm.id}
             />
           )
         }
