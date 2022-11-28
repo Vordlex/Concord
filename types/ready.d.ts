@@ -1,5 +1,6 @@
 import { activities } from "./generics/activities"
 import { guilds } from "./generics/guilds"
+import { status } from "./generics/status"
 
 export type ready = {
   d: {
@@ -42,7 +43,8 @@ export type users = {
   discriminator: string
   id: string
   public_flags: number
-  username: string
+  username: string,
+  status: status
 }
 
 type user_guild_settings = {
