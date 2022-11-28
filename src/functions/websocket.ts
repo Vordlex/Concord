@@ -74,6 +74,7 @@ const websocketConnect = (): any => {
   }
   client.onmessage = async (event) => {
     const data = JSON.parse(event.data) as wsResponse
+    console.log(data)
 
     switch (data.t) {
       case "READY": {
@@ -83,7 +84,6 @@ const websocketConnect = (): any => {
       case "READY_SUPPLEMENTAL":
         break
       default:
-        console.log(data)
         break
     }
   }

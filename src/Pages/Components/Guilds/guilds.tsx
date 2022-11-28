@@ -1,13 +1,16 @@
 import { connect } from "react-redux"
 import { ready } from "../../../../types/ready"
+import { stateType } from "../../../reducers/websocket_reducers"
 import styles from "./guilds.module.css"
 import ServerIcon from "./serverIcon"
 
 const Guilds = (...props: any) => {
+  console.log(props)
+
   const {
     websocket_redux,
   }: {
-    websocket_redux: ready
+    websocket_redux: stateType
   } = props[0]
 
   return (
@@ -29,7 +32,7 @@ const Guilds = (...props: any) => {
       <div className={styles.dirToGuildsSepatator} />
       <div className={styles.barContent}>
         <div className={styles.guildsContainer}>
-          {websocket_redux.d?.guilds.map((guild) => {
+          {websocket_redux.guilds.map((guild) => {
             return (
               <div key={guild.id}>
                 <ServerIcon guild={guild} />
@@ -94,7 +97,7 @@ const Guilds = (...props: any) => {
   )
 }
 
-const mapStateToProps = (state: any) => {
+const mapStateToProps = (state: stateType) => {
   return {
     ...state,
   }

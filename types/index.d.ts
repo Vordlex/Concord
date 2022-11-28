@@ -11,6 +11,11 @@ import { message_reaction_add } from "./message_reaction_add"
 import { message_reaction_remove } from "./message_reaction_remove"
 import { message_delete } from "./message_delete"
 import { embedded_activity_update } from "./embedded_activity_update"
+import { relationship_add } from "./relationship_add"
+import { relationship_remove } from "./relationship_remove"
+import { channel_update } from "./channel_update"
+import { message_ack } from "./message_ack"
+import { notification_center_item_create } from "./notification_center_item_create"
 
 export type wsResponse =
   | ready
@@ -26,4 +31,9 @@ export type wsResponse =
   | message_reaction_remove
   | message_delete
   | embedded_activity_update
+  | relationship_add
+  | relationship_remove
+  | channel_update
+  | message_ack
+  | notification_center_item_create
   | { t: "UNDEFINED" }
