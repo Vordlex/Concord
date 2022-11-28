@@ -1,5 +1,6 @@
 import { wsResponse } from "../../types"
 import store from "../store"
+import asyncTimeout from "./asyncTimeout"
 
 const websocketConnect = (): any => {
   const client = new WebSocket("wss://gateway.discord.gg/?encoding=json&v=9")
@@ -9,7 +10,7 @@ const websocketConnect = (): any => {
       JSON.stringify({
         op: 2,
         d: {
-          token: process.env.REACT_APP_DISCORD_TOKEN, //<<< TOKEN HERE
+          token: process.env.REACT_APP_DISCORD_TOKEN,
           capabilities: 4093,
           properties: {
             os: "Windows",
@@ -47,6 +48,29 @@ const websocketConnect = (): any => {
         },
       })
     )
+    client.send(
+      JSON.stringify({
+        op: 4,
+        d: {
+          guild_id: null,
+          channel_id: null,
+          self_mute: true,
+          self_deaf: false,
+          self_video: false,
+        },
+      })
+    )
+
+    const keepAlive = async (d: number = 6) => {
+      await asyncTimeout(1000 * 30)
+
+      console.log("keep alive")
+
+      client.send(JSON.stringify({ op: 1, d }))
+
+      keepAlive(d + 30)
+    }
+    keepAlive()
   }
   client.onmessage = async (event) => {
     const data = JSON.parse(event.data) as wsResponse
@@ -59,7 +83,7 @@ const websocketConnect = (): any => {
       case "READY_SUPPLEMENTAL":
         break
       default:
-        // console.log(data.t)
+        console.log(data)
         break
     }
   }
