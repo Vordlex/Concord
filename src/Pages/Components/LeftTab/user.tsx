@@ -1,7 +1,6 @@
 import { useState } from "react"
 import { users } from "../../../../types/ready"
 import styles from "./LeftTab.module.css"
-import { status } from "../../../../types/generics/status"
 
 const UserIcon = ({
   avatar,
@@ -10,9 +9,18 @@ const UserIcon = ({
   id,
   public_flags,
   username,
+  status,
 }: users) => {
   const [imageFormat, setImageFormat] = useState("webp")
 
+  var statusColor;
+
+  if ( status == "online" ) statusColor = "#3ca05c"
+  else if ( status === "idle" ) statusColor = "#f5b858"
+  else if ( status === "dnd" ) statusColor = "#e84244"
+  else if ( status === "invisible" ) statusColor = "#6d7784"
+  else statusColor = "#6d7784"
+  
   return (
     <div className={styles.userContainer}
       onMouseEnter={() => {
@@ -33,9 +41,9 @@ const UserIcon = ({
         height="48"
         alt=""   
       />
-      <div className={styles.status} ></div>
+      <div className={styles.status} style={{backgroundColor: statusColor}}></div>
 
-    <div className={styles.userName} >{username}</div>      
+    <div className={styles.userName}>{username}</div>      
     </div>
   )
 }
