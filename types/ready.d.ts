@@ -24,7 +24,7 @@ export type ready = {
     merged_members: merged_members
     private_channels: private_channels[]
     read_state: read_state
-    relationships: relationships
+    relationships: relationships[]
     sessions: sessions[]
     user: user
     user_guild_settings: user_guild_settings
@@ -120,10 +120,11 @@ type sessions = {
   status: string
 }
 
-type relationships = {
+export type relationships = {
   id: string
   nickname: null | string
-  type: number
+  since?: Date
+  type: 1 | 2 | 3 | 4 //1 is friend, 2 I blocked, 3 someone sent me a friend request, 4 I sent friend request
   user_id: string
 }
 
@@ -194,4 +195,3 @@ type connected_accounts_type = {
   verified: boolean
   visibility: number
 }
-

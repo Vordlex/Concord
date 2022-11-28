@@ -1,12 +1,9 @@
 import { connect } from "react-redux"
-import { ready } from "../../../../types/ready"
 import { stateType } from "../../../reducers/websocket_reducers"
 import styles from "./guilds.module.css"
 import ServerIcon from "./serverIcon"
 
 const Guilds = (...props: any) => {
-  console.log(props)
-
   const {
     websocket_redux,
   }: {
