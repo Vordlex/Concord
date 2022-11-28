@@ -1,1 +1,4 @@
-export default (ms: number) => new Promise((resolve) => setTimeout(resolve, ms))
+const asyncTimeout = (ms: number) =>
+  new Promise((resolve) => setTimeout(resolve, ms))
+
+export default asyncTimeout
