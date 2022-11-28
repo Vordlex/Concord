@@ -1,20 +1,31 @@
 # Concord
 
-===========================================================================
-
 This project was made with Electron, React an Typescript. Our purpose is to change the UI to a more pleasant and functional one. Also we want to turn all beta features public for users (optional feature).
 
-## Scripts
+<hr>
 
-### `npm run electron:dev`
+## Downloading
+
+```
+git clone https://github.com/Vordlex/Concord
+cd Concord
+```
+
+## Scripts ( yarn / npm )
+
+#### `yarn electron dev`
+#### `npm run electron:dev`
 
 Runs the Electron app in the development mode.
 
 The Electron app will reload if you make edits in the `electron` directory.<br>
 
-### `npm run electron:build`
+#### `yarn electron:build`
+#### `npm run electron:build`
 
 Builds the Electron app package for production to the `dist` folder.
+
+<hr>
 
 ## Many thanks to the following articles!
 
