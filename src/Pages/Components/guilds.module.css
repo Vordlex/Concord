@@ -8,6 +8,7 @@
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
+  align-items: center;
   background-color: #1e2124;
   height: 72px;
 }
@@ -31,7 +32,7 @@
   border-radius: 50%;
   cursor: pointer;
   animation: expandAndColorReverse;
-  animation-duration: 0.45s;
+  animation-duration: 0.25s;
   animation-fill-mode: forwards;
   display: flex;
   align-items: center;
@@ -51,7 +52,67 @@
   border-radius: 1px;
   background-color: #424549;
   margin: var(--iconsMargin);
-  margin-top: 1.2em;
+}
+.guildsContainer{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  overflow: hidden;
+  max-width: calc( 100vw - 152px );
+}
+.defaultServerIcon{
+  background-color: #2e455e;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  margin: var(--iconsMargin);
+  cursor: pointer;
+  animation: reverseExpand;
+  animation-duration: var(--iconAnimationTime);
+  margin-top: var(--iconsMarginTop);
+}
+.defaultServerIcon:hover {
+  animation: expand;
+  animation-duration: var(--iconAnimationTime);
+  animation-fill-mode: forwards;
+}
+.menuButtonBackground{
+  width: 68px;
+  height: 72px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  background: #1e2124;
+  box-shadow: #1e2124 -10px -0px 6px -1px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.menuButton{
+  width: 48px;
+  height: 48px;
+  position: absolute;
+  left: calc(100% - 63px);
+  background-color: #36393f;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  border-left: 50px;
+
+  transition: all var(--iconAnimationTime);
+}
+.menuButton svg{
+  width: 20px;
+}
+.menuButton:hover{
+  cursor: pointer;
+  background-color: #42454d;
+
+  transition: all var(--iconAnimationTime);
 }
 
 /* keyframes */
@@ -68,15 +129,15 @@
 @keyframes expandAndColor {
   100% {
     border-radius: 35%;
-    background-color: #7289da;
+    background-color: #454FBF;
   }
 }
 @keyframes expandAndColorReverse {
   0% {
     border-radius: 35%;
-    background-color: #7289da;
+    background-color: #454FBF;
   }
   50% {
-    background-color: #7289da;
+    background-color: #454FBF;
   }
 }
