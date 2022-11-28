@@ -15,7 +15,7 @@ const UserIcon = ({
 
   var statusColor;
 
-  if ( status == "online" ) statusColor = "#3ca05c"
+  if ( status === "online" ) statusColor = "#3ca05c"
   else if ( status === "idle" ) statusColor = "#f5b858"
   else if ( status === "dnd" ) statusColor = "#e84244"
   else if ( status === "invisible" ) statusColor = "#6d7784"
