@@ -14,4 +14,4 @@ export type presence_update = {
   t: "PRESENCE_UPDATE"
 }
 
-type client_status = { mobile: status; desktop: status }
+type client_status = { mobile: status; desktop: status, web: status }

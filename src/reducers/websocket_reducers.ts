@@ -6,6 +6,10 @@ import {
   relationships,
   users,
 } from "../../types/ready"
+import {
+  guilds as supplementalGuilds,
+  ready_supplemental,
+} from "../../types/ready_supplemental"
 import { READY, READY_SUPPLEMENTAL } from "../actions/websocket_actions"
 
 export type stateType = {
@@ -43,7 +47,7 @@ export const websocket_redux = (
   action: { type: string; data: wsResponse }
 ): stateType => {
   switch (action.type) {
-    case READY:
+    case READY: {
       const data = action.data as ready
       return {
         ...state,
@@ -54,8 +58,31 @@ export const websocket_redux = (
         private_channels: data.d.private_channels,
         users: data.d.users,
       }
-    case READY_SUPPLEMENTAL:
-      return state
+    }
+    case READY_SUPPLEMENTAL: {
+      const data = action.data as ready_supplemental
+
+      const users: users[] = []
+      state.users.forEach((user) => {
+        data.d.merged_presences.guilds.forEach(
+          (guilds: supplementalGuilds[]) => {
+            guilds.forEach((guild) => {
+              if (
+                guild.user_id === user.id &&
+                users.find((userFind) => userFind.id === user.id) === undefined
+              ) {
+                users.push({ ...user, status: guild.status })
+              }
+            })
+          }
+        )
+      })
+
+      return {
+        ...state,
+        users,
+      }
+    }
     default:
       return state
   }

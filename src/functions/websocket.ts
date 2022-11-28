@@ -75,17 +75,20 @@ const websocketConnect = (): any => {
   client.onmessage = async (event) => {
     const data = JSON.parse(event.data) as wsResponse
     console.log(data)
+    store.dispatch({ type: data.t, data: data })
 
-    switch (data.t) {
-      case "READY": {
-        store.dispatch({ type: "READY", data: data })
-        break
-      }
-      case "READY_SUPPLEMENTAL":
-        break
-      default:
-        break
-    }
+    // switch (data.t) {
+    //   case "READY": {
+    //     store.dispatch({ type: "READY", data: data })
+    //     break
+    //   }
+    //   case "READY_SUPPLEMENTAL": {
+    //     store.dispatch({ type: "READY_SUPPLEMENTAL", data: data })
+    //     break
+    //   }
+    //   default:
+    //     break
+    // }
   }
 }
 export default websocketConnect
