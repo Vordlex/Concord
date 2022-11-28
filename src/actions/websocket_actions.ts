@@ -1,2 +1,3 @@
 export const READY = "READY"
 export const READY_SUPPLEMENTAL = "READY_SUPPLEMENTAL"
+export const PRESENCE_UPDATE = "PRESENCE_UPDATE"

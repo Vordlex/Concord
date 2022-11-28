@@ -1,5 +1,6 @@
 import { wsResponse } from "../../types/"
 import { guilds } from "../../types/generics/guilds"
+import { presence_update } from "../../types/presence_update"
 import {
   private_channels,
   ready,
@@ -10,7 +11,11 @@ import {
   guilds as supplementalGuilds,
   ready_supplemental,
 } from "../../types/ready_supplemental"
-import { READY, READY_SUPPLEMENTAL } from "../actions/websocket_actions"
+import {
+  PRESENCE_UPDATE,
+  READY,
+  READY_SUPPLEMENTAL,
+} from "../actions/websocket_actions"
 
 export type stateType = {
   guilds: guilds[]
@@ -76,6 +81,24 @@ export const websocket_redux = (
             })
           }
         )
+      })
+
+      return {
+        ...state,
+        users,
+      }
+    }
+    case PRESENCE_UPDATE: {
+      const data = action.data as presence_update
+
+      const users = state.users.map((user) => {
+        if (user.id === data.d.user.id) {
+          return {
+            ...user,
+            status: data.d.status,
+          }
+        }
+        return user
       })
 
       return {
