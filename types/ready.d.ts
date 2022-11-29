@@ -44,7 +44,6 @@ export type users = {
   id: string
   public_flags: number
   username: string
-  status?: status
 }
 
 type user_guild_settings = {
@@ -119,7 +118,7 @@ type sessions = {
   activities: activities[]
   client_info: client_info
   session_id: string
-  status: string
+  status: status
 }
 
 export type relationships = {

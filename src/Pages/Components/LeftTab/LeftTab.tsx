@@ -1,5 +1,5 @@
 import { connect } from "react-redux"
-import { stateType } from "../../../reducers/websocket_reducers"
+import { Websocket_Reducers_Type } from "../../../reducers/websocket_reducers"
 import styles from "./LeftTab.module.css"
 import UserIcon from "./user"
 
@@ -7,29 +7,22 @@ const LeftTab = (...props: any) => {
   const {
     websocket_redux,
   }: {
-    websocket_redux: stateType
+    websocket_redux: Websocket_Reducers_Type
   } = props[0]
-
-  console.log(websocket_redux)
 
   return (
     <div className={styles.main}>
       {websocket_redux.private_channels.reverse().map((dm) => {
-        const user = websocket_redux.users.find(
-          (user) => user.id === dm.recipient_ids[0]
-        )
+        const user = websocket_redux.users
+          .reverse()
+          .find((user) => user.id === dm.recipient_ids[0])
         if (user) {
-          if (user.bot === true) return ""
+          // if (user.bot === true) return ""
           return (
             <UserIcon
+              avatar={user.avatar}
               id={user.id}
               username={user.username}
-              avatar={user.avatar}
-              bot={user.bot}
-              discriminator={user.discriminator}
-              public_flags={user.public_flags}
-              status={user.status} // <-- PUT THE USER STATUS HERE            
-
               key={dm.id}
             />
           )
@@ -40,9 +33,13 @@ const LeftTab = (...props: any) => {
   )
 }
 
-const mapStateToProps = (state: stateType) => {
+const mapStateToProps = ({
+  websocket_redux,
+}: {
+  websocket_redux: Websocket_Reducers_Type
+}) => {
   return {
-    ...state,
+    websocket_redux,
   }
 }
 

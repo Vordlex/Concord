@@ -1,5 +1,5 @@
 import { connect } from "react-redux"
-import { stateType } from "../../../reducers/websocket_reducers"
+import { Websocket_Reducers_Type } from "../../../reducers/websocket_reducers"
 import styles from "./guilds.module.css"
 import ServerIcon from "./serverIcon"
 
@@ -7,7 +7,7 @@ const Guilds = (...props: any) => {
   const {
     websocket_redux,
   }: {
-    websocket_redux: stateType
+    websocket_redux: Websocket_Reducers_Type
   } = props[0]
 
   return (
@@ -94,7 +94,7 @@ const Guilds = (...props: any) => {
   )
 }
 
-const mapStateToProps = (state: stateType) => {
+const mapStateToProps = (state: Websocket_Reducers_Type) => {
   return {
     ...state,
   }

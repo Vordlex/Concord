@@ -77,18 +77,28 @@ const websocketConnect = (): any => {
     console.log(data)
     store.dispatch({ type: data.t, data: data })
 
-    // switch (data.t) {
-    //   case "READY": {
-    //     store.dispatch({ type: "READY", data: data })
-    //     break
-    //   }
-    //   case "READY_SUPPLEMENTAL": {
-    //     store.dispatch({ type: "READY_SUPPLEMENTAL", data: data })
-    //     break
-    //   }
-    //   default:
-    //     break
-    // }
+    switch (data.t) {
+      case "READY_SUPPLEMENTAL": {
+        data.d.merged_presences.guilds.forEach((guildsArray) => {
+          guildsArray.forEach((guild) => {
+            store.dispatch({
+              type: "PRESENCE_UPDATE",
+              data: {
+                d: {
+                  status: guild.status,
+                  user: {
+                    id: guild.user_id,
+                  },
+                },
+              },
+            })
+          })
+        })
+        break
+      }
+      default:
+        break
+    }
   }
 }
 export default websocketConnect

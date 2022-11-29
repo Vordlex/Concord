@@ -1,5 +1,5 @@
 import { connect } from "react-redux"
-import { stateType } from "../reducers/websocket_reducers"
+import { Websocket_Reducers_Type } from "../reducers/websocket_reducers"
 import "./App.css"
 import Guilds from "./Components/Guilds/guilds"
 import LeftTab from "./Components/LeftTab/LeftTab"
@@ -8,7 +8,7 @@ const App = (...props: any) => {
   const {
     websocket_redux,
   }: {
-    websocket_redux: stateType
+    websocket_redux: Websocket_Reducers_Type
   } = props[0]
   return (
     <div>
@@ -18,7 +18,7 @@ const App = (...props: any) => {
   )
 }
 
-const mapStateToProps = (state: stateType) => {
+const mapStateToProps = (state: Websocket_Reducers_Type) => {
   return {
     ...state,
   }

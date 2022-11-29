@@ -1,23 +1,17 @@
 import { wsResponse } from "../../types/"
 import { guilds } from "../../types/generics/guilds"
-import { presence_update } from "../../types/presence_update"
 import {
   private_channels,
   ready,
   relationships,
   users,
 } from "../../types/ready"
-import {
-  guilds as supplementalGuilds,
-  ready_supplemental,
-} from "../../types/ready_supplemental"
-import {
-  PRESENCE_UPDATE,
-  READY,
-  READY_SUPPLEMENTAL,
-} from "../actions/websocket_actions"
+import { ready_supplemental } from "../../types/ready_supplemental"
 
-export type stateType = {
+import { READY, READY_SUPPLEMENTAL } from "../actions/websocket_actions"
+import store from "../store"
+
+export type Websocket_Reducers_Type = {
   guilds: guilds[]
   friend_suggestion_count: number
   consents: {
@@ -32,7 +26,7 @@ export type stateType = {
   LeftTabContent: "FRIENDS" | "CHANNELS"
 }
 
-const initialState: stateType = {
+const initialState: Websocket_Reducers_Type = {
   guilds: [],
   friend_suggestion_count: 0,
   consents: {
@@ -48,9 +42,9 @@ const initialState: stateType = {
 }
 
 export const websocket_redux = (
-  state: stateType = initialState,
+  state: Websocket_Reducers_Type = initialState,
   action: { type: string; data: wsResponse }
-): stateType => {
+): Websocket_Reducers_Type => {
   switch (action.type) {
     case READY: {
       const data = action.data as ready
@@ -65,46 +59,7 @@ export const websocket_redux = (
       }
     }
     case READY_SUPPLEMENTAL: {
-      const data = action.data as ready_supplemental
-
-      const users: users[] = []
-      state.users.forEach((user) => {
-        data.d.merged_presences.guilds.forEach(
-          (guilds: supplementalGuilds[]) => {
-            guilds.forEach((guild) => {
-              if (
-                guild.user_id === user.id &&
-                users.find((userFind) => userFind.id === user.id) === undefined
-              ) {
-                users.push({ ...user, status: guild.status })
-              }
-            })
-          }
-        )
-      })
-
-      return {
-        ...state,
-        users,
-      }
-    }
-    case PRESENCE_UPDATE: {
-      const data = action.data as presence_update
-
-      const users = state.users.map((user) => {
-        if (user.id === data.d.user.id) {
-          return {
-            ...user,
-            status: data.d.status,
-          }
-        }
-        return user
-      })
-
-      return {
-        ...state,
-        users,
-      }
+      return state
     }
     default:
       return state
