@@ -22,10 +22,10 @@ const UserIcon = ({
 
   console.log(user_status_redux)
 
-  if (status === "online") statusColor = "#3ca05c"
-  else if (status === "idle") statusColor = "#f5b858"
-  else if (status === "dnd") statusColor = "#e84244"
-  else statusColor = "#6d7784"
+  if (status === "online") statusColor = "#3ba55d"
+  else if (status === "idle") statusColor = "#faa81a"
+  else if (status === "dnd") statusColor = "#ed4245"
+  else statusColor = "#747f8d"
   return (
     <div
       className={styles.userContainer}
