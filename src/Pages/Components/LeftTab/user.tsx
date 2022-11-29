@@ -23,6 +23,68 @@ const UserIcon = ({
     return "#747f8d"
   }
 
+  const statusIcon = () => {
+    if (status === "online") {
+      return (
+        <svg
+          style={{ width: "40px", height: "40px" }}
+          id="Camada_1"
+          data-name="Camada 1"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 65.56 65.56"
+        >
+          <circle fill="#3e9a59" cx="10" cy="10" r="10" />
+        </svg>
+      )
+    }
+    if (status === "idle") {
+      return (
+        <svg
+          style={{ width: "40px", height: "40px" }}
+          id="Camada_1"
+          data-name="Camada 1"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 65.56 65.56"
+          fill="#faa81a"
+        >
+          <path
+            d="M20,10.1c0,5.5-4.5,10-10,10s-10-4.5-10-10c2.7,2.4,6.6,2.6,9.2,0.6c3.1-2.3,3.7-7.2,0.8-10.6
+	C15.5,0.1,20,4.6,20,10.1z"
+          />
+        </svg>
+      )
+    }
+    if (status === "dnd") {
+      return (
+        <svg
+          style={{ width: "40px", height: "40px" }}
+          id="Camada_1"
+          data-name="Camada 1"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 65.56 65.56"
+        >
+          <circle fill="#c5474b" cx="10" cy="10" r="10" />
+          <path d="M5.7,7.9h8.6c1.1,0,2,0.9,2,2v0.2c0,1.1-0.9,2-2,2H5.7c-1.1,0-2-0.9-2-2V9.9C3.7,8.8,4.6,7.9,5.7,7.9z" />
+        </svg>
+      )
+    }
+    return (
+      <svg
+        style={{ width: "40px", height: "40px" }}
+        version="1.1"
+        id="Camada_1"
+        xmlns="http://www.w3.org/2000/svg"
+        x="0px"
+        y="0px"
+        viewBox="0 0 65.56 65.56"
+      >
+        <style type="text/css"></style>
+        <circle fill="#727D8A" cx="10" cy="10" r="10" />
+        <circle cx="10" cy="10" r="5" fill="black" />
+      </svg>
+    )
+  }
+
   const status = user_status_redux[id]
 
   return (
@@ -46,11 +108,7 @@ const UserIcon = ({
           height="48"
           alt=""
         />
-        <div
-          className={styles.status}
-          key={`${status}-${id}`}
-          style={{ backgroundColor: statusColor() }}
-        ></div>
+        <div className={styles.status}>{statusIcon()}</div>
       </div>
 
       <div className={styles.userName}>{username}</div>
