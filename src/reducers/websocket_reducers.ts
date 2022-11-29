@@ -6,10 +6,8 @@ import {
   relationships,
   users,
 } from "../../types/ready"
-import { ready_supplemental } from "../../types/ready_supplemental"
 
 import { READY, READY_SUPPLEMENTAL } from "../actions/websocket_actions"
-import store from "../store"
 
 export type Websocket_Reducers_Type = {
   guilds: guilds[]
