@@ -16,16 +16,15 @@ const UserIcon = ({
 }): any => {
   const [imageFormat, setImageFormat] = useState("webp")
 
-  let statusColor
+  const statusColor = () => {
+    if (status === "online") return "#3ba55d"
+    if (status === "idle") return "#faa81a"
+    if (status === "dnd") return "#ed4245"
+    return "#747f8d"
+  }
 
   const status = user_status_redux[id]
 
-  console.log(user_status_redux)
-
-  if (status === "online") statusColor = "#3ba55d"
-  else if (status === "idle") statusColor = "#faa81a"
-  else if (status === "dnd") statusColor = "#ed4245"
-  else statusColor = "#747f8d"
   return (
     <div
       className={styles.userContainer}
@@ -38,18 +37,20 @@ const UserIcon = ({
         setImageFormat("webp")
       }}
     >
-      <img
-        className={styles.icon}
-        src={`https://cdn.discordapp.com/avatars/${id}/${avatar}.${imageFormat}?size=80`}
-        title={username.toString()}
-        width="48"
-        height="48"
-        alt=""
-      />
-      <div
-        className={styles.status}
-        style={{ backgroundColor: statusColor }}
-      ></div>
+      <div className={styles.imgContainer}>
+        <img
+          className={styles.icon}
+          src={`https://cdn.discordapp.com/avatars/${id}/${avatar}.${imageFormat}?size=80`}
+          title={username.toString()}
+          width="48"
+          height="48"
+          alt=""
+        />
+        <div
+          className={styles.status}
+          style={{ backgroundColor: statusColor() }}
+        ></div>
+      </div>
 
       <div className={styles.userName}>{username}</div>
     </div>
