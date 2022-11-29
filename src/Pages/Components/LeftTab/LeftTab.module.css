@@ -9,6 +9,7 @@
   flex-direction: column;
   text-align: center;
   color: #ffffff;
+  overflow: scroll;
 }
 
 .icon {
