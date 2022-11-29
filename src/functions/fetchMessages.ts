@@ -3,7 +3,7 @@ import store from "../store"
 
 const fetchMessages = async (channelId: string) => {
   try {
-    const messages: messages[] | null = await (
+    const messages: { code: 50001; message: "Missing Access" } | null = await (
       await fetch(
         `https://discord.com/api/v9/channels/${channelId}/messages?limit=50`,
         {
@@ -24,6 +24,10 @@ const fetchMessages = async (channelId: string) => {
       .catch(console.log)
 
     if (messages === null) {
+      return ""
+    }
+
+    if (messages.code === 50001) {
       return ""
     }
 
