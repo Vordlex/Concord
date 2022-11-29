@@ -48,6 +48,7 @@ const UserIcon = ({
         />
         <div
           className={styles.status}
+          key={`${status}-${id}`}
           style={{ backgroundColor: statusColor() }}
         ></div>
       </div>
