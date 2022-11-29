@@ -37,18 +37,20 @@ const UserIcon = ({
         setImageFormat("webp")
       }}
     >
-      <img
-        className={styles.icon}
-        src={`https://cdn.discordapp.com/avatars/${id}/${avatar}.${imageFormat}?size=80`}
-        title={username.toString()}
-        width="48"
-        height="48"
-        alt=""
-      />
-      <div
-        className={styles.status}
-        style={{ backgroundColor: statusColor() }}
-      ></div>
+      <div className={styles.imgContainer}>
+        <img
+          className={styles.icon}
+          src={`https://cdn.discordapp.com/avatars/${id}/${avatar}.${imageFormat}?size=80`}
+          title={username.toString()}
+          width="48"
+          height="48"
+          alt=""
+        />
+        <div
+          className={styles.status}
+          style={{ backgroundColor: statusColor() }}
+        ></div>
+      </div>
 
       <div className={styles.userName}>{username}</div>
     </div>
