@@ -62,13 +62,19 @@ const websocketConnect = (): any => {
     )
 
     const keepAlive = async (d: number = 6) => {
-      await asyncTimeout(1000 * 30)
+      console.log(client.readyState, client.CLOSED)
 
-      console.log("keep alive")
+      if (client.CLOSED === client.readyState) {
+        websocketConnect()
+        return
+      }
+      await asyncTimeout(1000 * 20)
+
+      // console.log("keep alive")
 
       client.send(JSON.stringify({ op: 1, d }))
 
-      keepAlive(d + 30)
+      keepAlive(d + 40)
     }
     keepAlive()
   }
