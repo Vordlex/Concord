@@ -1,5 +1,5 @@
 import { connect } from "react-redux"
-import { Websocket_Reducers_Type } from "../../../reducers/websocket_reducers"
+import { Websocket_Reducers_Type } from "../../../reducers/websocket_redux"
 import styles from "./LeftTab.module.css"
 import UserIcon from "./user"
 

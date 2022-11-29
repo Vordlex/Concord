@@ -1,9 +1,9 @@
 import { connect } from "react-redux"
-import { Websocket_Reducers_Type } from "../reducers/websocket_reducers"
+import { Websocket_Reducers_Type } from "../reducers/websocket_redux"
 import "./App.css"
 import Guilds from "./Components/Guilds/guilds"
 import LeftTab from "./Components/LeftTab/LeftTab"
-
+import MiddleTab from "./Components/MiddleTab/MiddleTab"
 const App = (...props: any) => {
   const {
     websocket_redux,
@@ -13,7 +13,10 @@ const App = (...props: any) => {
   return (
     <div>
       <Guilds />
-      {websocket_redux.LeftTabEnabled === true ? <LeftTab /> : ""}
+      <div style={{ display: "flex", flexDirection: "row" }}>
+        {websocket_redux.LeftTabEnabled === true ? <LeftTab /> : ""}
+        <MiddleTab />
+      </div>
     </div>
   )
 }
