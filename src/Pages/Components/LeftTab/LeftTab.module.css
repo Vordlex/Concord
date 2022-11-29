@@ -9,7 +9,7 @@
   flex-direction: column;
   text-align: center;
   color: #ffffff;
-  overflow: scroll;
+  overflow-y: scroll;
 }
 
 .icon {
@@ -29,7 +29,7 @@
   border-radius: 4px;
 }
 .userContainer:hover {
-  background-color: #3c3c44;
+  background-color: #3d4047;
   cursor: pointer;
 }
 
@@ -59,9 +59,11 @@
   0% {
     width: 0px;
     height: 0px;
+    opacity: 0%;
   }
   100% {
     width: 12px;
     height: 12px;
+    opacity: 100%;
   }
 }
