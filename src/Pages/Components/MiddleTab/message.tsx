@@ -1,4 +1,4 @@
-import styles from "./MiddleTab.module.css";
+import styles from "./message.module.css";
 import { useState } from "react";
 
 const Message = (message: any) => {
@@ -19,7 +19,7 @@ const Message = (message: any) => {
       <div>
         <img
           className={styles.icon}
-          src={`https://cdn.discordapp.com/avatars/${message.message.author.id}/${message.message.author.avatar}.webp?size=80`} //${imageFormat}
+          src={`https://cdn.discordapp.com/avatars/${message.message.author.id}/${message.message.author.avatar}.${imageFormat}?size=80`} //${imageFormat}
           width="48"
           height="48"
           alt=""

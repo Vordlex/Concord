@@ -1,0 +1,5 @@
+.icon {
+    position: relative;
+    border-radius: 50%;
+    display: flex;
+}
