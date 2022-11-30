@@ -2,6 +2,7 @@
   padding-top: 2px;
   height: calc(100vh - 72px);
   width: 100%;
+  position: relative;
   background-color: #424549;
   display: flex;
   align-items: left;
@@ -12,7 +13,10 @@
   overflow-y: scroll;
 }
 
-.messageStyle {
+.message {
   display: flex;
+  padding: 10px;
   flex-direction: row;
+  width: 100%;
+  position: relative;
 }
