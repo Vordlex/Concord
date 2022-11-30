@@ -8,9 +8,7 @@ const MiddleTab = ({ messages_redux }: { messages_redux: messages[] }) => {
     <div className={styles.main}>
       {
         messages_redux.reverse().map((message) => {
-          return (
-            <Message />
-          )
+          return <Message message={message} />;
         })
       }
     </div>

@@ -1,37 +1,33 @@
-import styles from "./MiddleTab.module.css"
-import { useState } from "react"
+import styles from "./MiddleTab.module.css";
+import { useState } from "react";
 
-const Message = () => {
-     const [imageFormat, setImageFormat] = useState("webp")
+const Message = (message: any) => {
+  const [imageFormat, setImageFormat] = useState("webp");
 
-     return (
-          <div className={styles.message}
-               /*
-                    onMouseEnter={() => {
-                         if (!avatar.startsWith("a_")) return
-                         setImageFormat("gif")
-                    }}
-                    onMouseLeave={() => {
-                         if (!avatar.startsWith("a_")) return
-                         setImageFormat("webp")
-                    }}
-               */
-          >
-               <div>
-                    <img
-                         className={styles.icon}
-                         //src={`https://cdn.discordapp.com/avatars/${authorId}/${avatar}.webp?size=80`} //${imageFormat}
-                         width="48"
-                         height="48"
-                         alt=""
-                    />
-               </div>
-               <div>
-                    <div></div>
-                    <div></div>
-               </div>
-          </div>
-     )
-}
+  return (
+    <div
+      className={styles.message}
+      onMouseEnter={() => {
+        if (!message.message.author.avatar.startsWith("a_")) return;
+        setImageFormat("gif");
+      }}
+      onMouseLeave={() => {
+        if (!message.message.author.avatar.startsWith("a_")) return;
+        setImageFormat("webp");
+      }}
+    >
+      <div>
+        <img
+          className={styles.icon}
+          src={`https://cdn.discordapp.com/avatars/${message.message.author.id}/${message.message.author.avatar}.webp?size=80`} //${imageFormat}
+          width="48"
+          height="48"
+          alt=""
+        />
+      </div>
+      <div>{message.message.content}</div>
+    </div>
+  );
+};
 
 export default Message;
