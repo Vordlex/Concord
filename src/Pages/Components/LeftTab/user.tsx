@@ -16,18 +16,11 @@ const UserIcon = ({
 }): any => {
   const [imageFormat, setImageFormat] = useState("webp")
 
-  const statusColor = () => {
-    if (status === "online") return "#3ba55d"
-    if (status === "idle") return "#faa81a"
-    if (status === "dnd") return "#ed4245"
-    return "#747f8d"
-  }
-
   const statusIcon = () => {
     if (status === "online") {
       return (
         <svg
-          style={{ width: "40px", height: "40px" }}
+          style={{ width: "40px", height: "40px"}}
           id="Camada_1"
           data-name="Camada 1"
           xmlns="http://www.w3.org/2000/svg"
@@ -40,7 +33,7 @@ const UserIcon = ({
     if (status === "idle") {
       return (
         <svg
-          style={{ width: "40px", height: "40px" }}
+          style={{ width: "40px", height: "40px"}}
           id="Camada_1"
           data-name="Camada 1"
           xmlns="http://www.w3.org/2000/svg"
@@ -57,20 +50,20 @@ const UserIcon = ({
     if (status === "dnd") {
       return (
         <svg
-          style={{ width: "40px", height: "40px" }}
+          style={{ width: "40px", height: "40px"}}
           id="Camada_1"
           data-name="Camada 1"
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 65.56 65.56"
         >
           <circle fill="#c5474b" cx="10" cy="10" r="10" />
-          <path d="M5.7,7.9h8.6c1.1,0,2,0.9,2,2v0.2c0,1.1-0.9,2-2,2H5.7c-1.1,0-2-0.9-2-2V9.9C3.7,8.8,4.6,7.9,5.7,7.9z" />
+          <path fill="#2f3136" d="M5.7,7.9h8.6c1.1,0,2,0.9,2,2v0.2c0,1.1-0.9,2-2,2H5.7c-1.1,0-2-0.9-2-2V9.9C3.7,8.8,4.6,7.9,5.7,7.9z" />
         </svg>
       )
     }
     return (
       <svg
-        style={{ width: "40px", height: "40px" }}
+        style={{ width: "40px", height: "40px", background: "#2f3136" }}
         version="1.1"
         id="Camada_1"
         xmlns="http://www.w3.org/2000/svg"
@@ -80,7 +73,7 @@ const UserIcon = ({
       >
         <style type="text/css"></style>
         <circle fill="#727D8A" cx="10" cy="10" r="10" />
-        <circle cx="10" cy="10" r="5" fill="black" />
+        <circle cx="10" cy="10" r="5" fill="#2f3136"></circle>
       </svg>
     )
   }
