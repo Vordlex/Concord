@@ -1,5 +1,6 @@
 import { connect } from "react-redux"
-import { Websocket_Reducers_Type } from "../../../reducers/websocket_reducers"
+import fetchMessages from "../../../functions/fetchMessages"
+import { Websocket_Reducers_Type } from "../../../reducers/websocket_redux"
 import styles from "./guilds.module.css"
 import ServerIcon from "./serverIcon"
 
@@ -31,7 +32,12 @@ const Guilds = (...props: any) => {
         <div className={styles.guildsContainer}>
           {websocket_redux.guilds.map((guild) => {
             return (
-              <div key={guild.id}>
+              <div
+                key={guild.id}
+                onClick={() => {
+                  fetchMessages(guild.channels[0].id)
+                }}
+              >
                 <ServerIcon guild={guild} />
               </div>
             )

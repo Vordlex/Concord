@@ -1,4 +1,4 @@
-import { wsResponse } from "../../types/"
+import { wsResponse } from "../../types"
 import { guilds } from "../../types/generics/guilds"
 import {
   private_channels,

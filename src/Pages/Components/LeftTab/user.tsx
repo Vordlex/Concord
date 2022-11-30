@@ -16,6 +16,13 @@ const UserIcon = ({
 }): any => {
   const [imageFormat, setImageFormat] = useState("webp")
 
+  const statusColor = () => {
+    if (status === "online") return "#3ba55d"
+    if (status === "idle") return "#faa81a"
+    if (status === "dnd") return "#ed4245"
+    return "#747f8d"
+  }
+
   const statusIcon = () => {
     if (status === "online") {
       return (
