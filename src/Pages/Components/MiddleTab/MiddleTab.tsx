@@ -9,9 +9,7 @@ const MiddleTab = ({ messages_redux }: { messages_redux: messages[] }) => {
       {
         messages_redux.reverse().map((message) => {
           return (
-            <Message
-              content={message.content}
-            />
+            <Message />
           )
         })
       }
