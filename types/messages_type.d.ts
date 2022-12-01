@@ -14,7 +14,7 @@ export type messages = {
   mention_everyone: boolean
   tts: boolean
   timestamp: Date
-  edited_timestamp: null
+  edited_timestamp: null | Date
   flags: number
   components: components[]
 }

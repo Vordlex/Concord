@@ -23,6 +23,7 @@ const LeftTab = (...props: any) => {
               avatar={user.avatar}
               id={user.id}
               username={user.username}
+              channel_id={dm.id}
               key={dm.id}
             />
           )
