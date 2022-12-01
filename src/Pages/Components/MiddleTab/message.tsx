@@ -1,6 +1,7 @@
 import styles from "./message.module.css";
 import { useState } from "react";
 import Embed from "../Embed/embed";
+import { embed_create } from "../../../../types/embed_create"
 
 const Message = (message: any) => {
   const [imageFormat, setImageFormat] = useState("webp");
@@ -33,10 +34,21 @@ const Message = (message: any) => {
           <div className={styles.content}>
               {message.message.content}
               {
-                message.message.embeds.map( (embed:any) => {
+                message.message.embeds.map( (embed: embed_create) => {
                   console.log(embed)
                   return(
-                    <Embed></Embed> 
+                    <Embed
+                      key={message.id}
+                      author={embed.author}
+                      title={embed.title}
+                      description={embed.description}
+                      thumbnail={embed.image}
+                      image={embed.image}
+                      video={embed.video}
+                      url={embed.url}
+                      type={embed.type}
+                      provider={embed.provider}
+                    />
                   )
                 })
               }

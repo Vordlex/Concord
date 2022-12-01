@@ -1,5 +1,5 @@
 export type embed_create = {
-    title?: string;
+    title: "rich" | "image" | "video" | "gifv" | "article" | "link";
     type?: string;
     description?: string;
     url?: string;
