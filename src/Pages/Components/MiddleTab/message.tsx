@@ -36,7 +36,7 @@ const Message = (message: any) => {
               {
                 message.message.embeds.map( (embed: embed_create) => {
                   console.log(embed)
-                  return(
+                  return (
                     <Embed
                       key={message.id}
                       author={embed.author}
@@ -48,8 +48,9 @@ const Message = (message: any) => {
                       url={embed.url}
                       type={embed.type}
                       provider={embed.provider}
+                      color={embed.color}
                     />
-                  )
+                  );
                 })
               }
           </div>
