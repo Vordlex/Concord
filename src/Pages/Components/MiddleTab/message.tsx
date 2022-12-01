@@ -1,9 +1,10 @@
 import styles from "./message.module.css";
 import { useState } from "react";
+import Embed from "../Embed/embed";
 
 const Message = (message: any) => {
   const [imageFormat, setImageFormat] = useState("webp");
-
+     console.log(message)
   return (
     <div
       className={styles.message}
@@ -25,7 +26,23 @@ const Message = (message: any) => {
           alt=""
         />
       </div>
-      <div>{message.message.content}</div>
+      <div>
+          <div className={styles.author}>
+               <span style={{textAlign: "left"}}>{ message.message.author.username }</span>
+          </div>
+          <div className={styles.content}>
+              {message.message.content}
+              {
+                message.message.embeds.map( (embed:any) => {
+                  console.log(embed)
+                  return(
+                    <Embed></Embed> 
+                  )
+                })
+              }
+          </div>
+      </div>
+      
     </div>
   );
 };
