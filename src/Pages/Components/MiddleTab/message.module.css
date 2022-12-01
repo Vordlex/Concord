@@ -1,5 +1,23 @@
+.message{
+    display: flex;
+    flex-direction: row;
+    padding: 10px;
+}
+.message:hover{
+    background-color: #33363bec;
+}
 .icon {
     position: relative;
     border-radius: 50%;
     display: flex;
+    margin-right: 10px;
+}
+.author{
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+    margin-bottom: 5px;
+}
+.content{
+    text-align: left;
 }
