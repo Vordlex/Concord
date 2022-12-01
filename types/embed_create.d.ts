@@ -1,5 +1,5 @@
 export type embed_create = {
-    title: "rich" | "image" | "video" | "gifv" | "article" | "link";
+    title?: string;
     type?: string;
     description?: string;
     url?: string;
@@ -10,29 +10,29 @@ export type embed_create = {
         icon_url?: string;
         proxy_icon_url?: string;
     };
-    image: {
+    image?: {
         url?: string;
         proxy_url?: string;
         height?: string;
         width?: string;
     };
-    thumbnail: {
+    thumbnail?: {
         url?: string;
         proxy_url?: string;
         height?: string;
         width?: string;
     };
-    video: {
+    video?: {
         url?: string;
         proxy_url?: string;
         height?: string;
         width?: string;
     };
-    provider: {
+    provider?: {
         name?: string;
         url?: string;
     };
-    author: {
+    author?: {
         name?: string;
         url?: string;
         icon_url?: string;
