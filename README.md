@@ -1,6 +1,6 @@
 # Concord
 
-This project was made with Electron, React an Typescript. Our purpose is to change the UI to a more pleasant and functional one. Also we want to turn all beta features public for users (optional feature).
+This project was made with Electron, React and Typescript. Our purpose is to change the UI to a more pleasant and functional one. Also we want to turn all beta features public for users (optional feature).
 
 <hr>
 
