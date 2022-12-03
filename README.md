@@ -16,7 +16,7 @@ Create a file named `.env` in concord folder
 
 **.env content**
 ```
-REACT_APP_DISCORD_TOKEN="{YOUR DISCORD TOKEN HERE}"
+REACT_APP_DISCORD_TOKEN="YOUR DISCORD TOKEN HERE"
 ```
 
 **How can I get my discord token ?**
