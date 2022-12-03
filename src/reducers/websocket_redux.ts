@@ -76,7 +76,7 @@ export const websocket_redux = (
       state.guilds.forEach((guild) => {
         guild.channels.forEach((channel) => {
           if (data.d === guild.id) {
-            channels.push(channel)
+            channels.sort((a, b) => a.position - b.position).push(channel)
           }
         })
       })
