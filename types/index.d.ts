@@ -16,6 +16,7 @@ import { relationship_remove } from "./relationship_remove"
 import { channel_update } from "./channel_update"
 import { message_ack } from "./message_ack"
 import { notification_center_item_create } from "./notification_center_item_create"
+import { switch_to_friend } from "./switch_to_friend"
 
 export type wsResponse =
   | ready
@@ -36,4 +37,5 @@ export type wsResponse =
   | channel_update
   | message_ack
   | notification_center_item_create
+  | switch_to_friend
   | { t: "UNDEFINED" }

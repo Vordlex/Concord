@@ -12,24 +12,30 @@ const LeftTab = (...props: any) => {
 
   return (
     <div className={styles.main}>
-      {websocket_redux.private_channels.reverse().map((dm) => {
-        const user = websocket_redux.users
-          .reverse()
-          .find((user) => user.id === dm.recipient_ids[0])
-        if (user) {
-          // if (user.bot === true) return ""
-          return (
-            <UserIcon
-              avatar={user.avatar}
-              id={user.id}
-              username={user.username}
-              channel_id={dm.id}
-              key={dm.id}
-            />
-          )
-        }
-        return ""
-      })}
+      {websocket_redux.LeftTabContent === "FRIENDS"
+        ? websocket_redux.private_channels
+            .map((dm) => {
+              const user = websocket_redux.users
+                .reverse()
+                .find((user) => user.id === dm.recipient_ids[0])
+              if (user) {
+                // if (user.bot === true) return ""
+                return (
+                  <UserIcon
+                    avatar={user.avatar}
+                    id={user.id}
+                    username={user.username}
+                    channel_id={dm.id}
+                    key={dm.id}
+                  />
+                )
+              }
+              return ""
+            })
+            .reverse()
+        : websocket_redux.selected_guild_channels.map((channel) => {
+            return <div>{channel.name}</div>
+          })}
     </div>
   )
 }

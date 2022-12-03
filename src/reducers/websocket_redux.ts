@@ -1,13 +1,19 @@
 import { wsResponse } from "../../types"
-import { guilds } from "../../types/generics/guilds"
+import { channels_type, guilds } from "../../types/generics/guilds"
 import {
   private_channels,
   ready,
   relationships,
   users,
 } from "../../types/ready"
+import { switch_to_friend } from "../../types/switch_to_friend"
 
-import { READY, READY_SUPPLEMENTAL } from "../actions/websocket_actions"
+import {
+  READY,
+  READY_SUPPLEMENTAL,
+  SWITCH_FRIEND_TO_CHANNEL,
+  SWITCH_CHANNEL_TO_FRIEND,
+} from "../actions/websocket_actions"
 
 export type Websocket_Reducers_Type = {
   guilds: guilds[]
@@ -19,6 +25,7 @@ export type Websocket_Reducers_Type = {
   }
   relationships: relationships[]
   private_channels: private_channels[]
+  selected_guild_channels: channels_type[]
   users: users[]
   LeftTabEnabled: boolean
   LeftTabContent: "FRIENDS" | "CHANNELS"
@@ -34,6 +41,7 @@ const initialState: Websocket_Reducers_Type = {
   },
   relationships: [],
   private_channels: [],
+  selected_guild_channels: [],
   users: [],
   LeftTabEnabled: true,
   LeftTabContent: "FRIENDS",
@@ -58,6 +66,32 @@ export const websocket_redux = (
     }
     case READY_SUPPLEMENTAL: {
       return state
+    }
+    case SWITCH_FRIEND_TO_CHANNEL: {
+      const data = action.data as switch_to_friend
+      const channels = state.selected_guild_channels
+
+      channels.length = 0
+
+      state.guilds.forEach((guild) => {
+        guild.channels.forEach((channel) => {
+          if (data.d === guild.id) {
+            channels.push(channel)
+          }
+        })
+      })
+
+      return {
+        ...state,
+        LeftTabContent: "CHANNELS",
+        selected_guild_channels: channels,
+      }
+    }
+    case SWITCH_CHANNEL_TO_FRIEND: {
+      return {
+        ...state,
+        LeftTabContent: "FRIENDS",
+      }
     }
     default:
       return state

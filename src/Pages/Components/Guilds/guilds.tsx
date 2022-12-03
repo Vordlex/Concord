@@ -1,6 +1,7 @@
 import { connect } from "react-redux"
 import fetchMessages from "../../../functions/fetchMessages"
 import { Websocket_Reducers_Type } from "../../../reducers/websocket_redux"
+import store from "../../../store"
 import styles from "./guilds.module.css"
 import ServerIcon from "./serverIcon"
 
@@ -13,7 +14,14 @@ const Guilds = (...props: any) => {
 
   return (
     <div className={styles.guilds}>
-      <div className={styles.discordIcon}>
+      <div
+        className={styles.discordIcon}
+        onClick={() => {
+          store.dispatch({
+            type: "SWITCH_CHANNEL_TO_FRIEND",
+          })
+        }}
+      >
         <svg
           aria-hidden="true"
           role="img"
@@ -36,6 +44,13 @@ const Guilds = (...props: any) => {
                 key={guild.id}
                 onClick={() => {
                   fetchMessages(guild.channels[0].id)
+                  store.dispatch({
+                    type: "SWITCH_FRIEND_TO_CHANNEL",
+                    data: {
+                      d: guild.id,
+                      t: "SWITCH_FRIEND_TO_CHANNEL",
+                    },
+                  })
                 }}
               >
                 <ServerIcon guild={guild} />
