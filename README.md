@@ -13,7 +13,8 @@ npm install
 ```
 ## Setup
 Create a file named `.env` in concord folder
-.env content
+
+**.env content**
 ```
 REACT_APP_DISCORD_TOKEN="{YOUR DISCORD TOKEN HERE}"
 ```
