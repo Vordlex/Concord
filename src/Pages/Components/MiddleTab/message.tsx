@@ -2,6 +2,8 @@ import styles from "./message.module.css";
 import { useState } from "react";
 import Embed from "../Embed/embed";
 import { embed_create } from "../../../../types/embed_create"
+import { attachments } from "../../../../types/generics/message";
+import Attachment from "../Atachment/attachment";
 
 const Message = (message: any) => {
   const [imageFormat, setImageFormat] = useState("webp");
@@ -33,26 +35,45 @@ const Message = (message: any) => {
           </div>
           <div className={styles.content}>
               {message.message.content}
+              <div>
               {
                 message.message.embeds.map( (embed: embed_create) => {
-                  console.log(embed)
+                  console.log(embed);
+                  
                   return (
                     <Embed
                       key={message.id}
                       author={embed.author}
                       title={embed.title}
                       description={embed.description}
-                      thumbnail={embed.image}
+                      thumbnail={embed.thumbnail}
                       image={embed.image}
                       video={embed.video}
                       url={embed.url}
                       type={embed.type}
                       provider={embed.provider}
-                      color={embed.color}
-                    />
+                      />
                   );
                 })
               }
+              {
+                message.message.attachments.map (( attachment: attachments ) => {
+                  return (
+                    <Attachment 
+                      content_type={attachment.content_type}
+                      filename={attachment.filename}
+                      height={attachment.height}
+                      width={attachment.width}
+                      id={attachment.id}
+                      proxy_url={attachment.proxy_url}
+                      size={attachment.size}
+                      url={attachment.url}
+                      key={attachment.id}
+                    />
+                  )
+                })  
+              }
+              </div>
           </div>
       </div>
       

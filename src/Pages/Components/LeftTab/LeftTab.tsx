@@ -1,7 +1,8 @@
 import { connect } from "react-redux"
 import { Websocket_Reducers_Type } from "../../../reducers/websocket_redux"
 import styles from "./LeftTab.module.css"
-import UserIcon from "./user"
+import UserIcon from "./user/user"
+import Channel from "./channel/channel"
 
 const LeftTab = (...props: any) => {
   const {
@@ -12,8 +13,8 @@ const LeftTab = (...props: any) => {
 
   return (
     <div className={styles.main}>
-      {websocket_redux.LeftTabContent === "FRIENDS"
-        ? websocket_redux.private_channels
+      {
+        websocket_redux.LeftTabContent === "FRIENDS" ? websocket_redux.private_channels
             .map((dm) => {
               const user = websocket_redux.users
                 .reverse()
@@ -33,8 +34,13 @@ const LeftTab = (...props: any) => {
               return ""
             })
             .reverse()
+
         : websocket_redux.selected_guild_channels.map((channel) => {
-            return <div>{channel.name}</div>
+            return <Channel 
+              name={channel.name} 
+              type={channel.type}
+              key={channel.id}
+            />
           })}
     </div>
   )
