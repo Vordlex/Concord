@@ -1,0 +1,16 @@
+.main{
+     margin: 5px;
+     padding: 7px;
+     display: flex;
+     flex-direction: row;
+     border-radius: 3px;
+     background-color: #2f3136;
+}
+.main:hover{
+     background-color: #3d4047;
+}
+.channelName{
+     display: flex;
+     align-items: center;
+     margin-left: 10px;
+}

@@ -1,8 +1,8 @@
 import { useState } from "react"
 import { connect } from "react-redux"
-import fetchMessages from "../../../functions/fetchMessages"
-import { User_Status_Redux_Type } from "../../../reducers/user_status_redux"
-import styles from "./LeftTab.module.css"
+import fetchMessages from "../../../../functions/fetchMessages"
+import { User_Status_Redux_Type } from "../../../../reducers/user_status_redux"
+import styles from "../LeftTab.module.css"
 
 const UserIcon = ({
   user_status_redux,

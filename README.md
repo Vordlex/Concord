@@ -11,6 +11,25 @@ git clone https://github.com/Vordlex/Concord
 cd Concord
 npm install
 ```
+## Setup
+Create a file named `.env` in concord folder
+
+**.env content**
+```
+REACT_APP_DISCORD_TOKEN="YOUR DISCORD TOKEN HERE"
+```
+
+**How can I get my discord token ?**
+
+1. On browser or discord-ptb, press `ctrl + shift + i`
+2. Go to the network tab
+<img src=https://cdn.discordapp.com/attachments/1046239786106638417/1048675106999763064/image.png >
+
+A big part of the requests has a header named Authorization, this is your discord token
+
+<img src=https://cdn.discordapp.com/attachments/1046239786106638417/1048676324908220526/image.png >
+
+after this, you can execute the scripts
 
 ## Scripts ( yarn / npm )
 
