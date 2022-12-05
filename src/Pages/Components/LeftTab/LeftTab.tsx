@@ -1,4 +1,5 @@
 import { connect } from "react-redux"
+import fetchMessages from "../../../functions/fetchMessages"
 import { Websocket_Reducers_Type } from "../../../reducers/websocket_redux"
 import styles from "./LeftTab.module.css"
 import UserIcon from "./user"
@@ -34,7 +35,16 @@ const LeftTab = (...props: any) => {
             })
             .reverse()
         : websocket_redux.selected_guild_channels.map((channel) => {
-            return <div>{channel.name}</div>
+            return (
+              <div
+                key={channel.id}
+                onClick={() => {
+                  fetchMessages(channel.id)
+                }}
+              >
+                {channel.name}
+              </div>
+            )
           })}
     </div>
   )
