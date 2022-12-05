@@ -1,5 +1,4 @@
 import { connect } from "react-redux"
-import fetchMessages from "../../../functions/fetchMessages"
 import { Websocket_Reducers_Type } from "../../../reducers/websocket_redux"
 import styles from "./LeftTab.module.css"
 import UserIcon from "./user/user"
