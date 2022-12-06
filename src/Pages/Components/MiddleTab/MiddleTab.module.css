@@ -1,6 +1,17 @@
 .main {
-  padding-top: 2px;
   height: calc(100vh - 72px);
+  width: 100%;
+  position: relative;
+  background-color: #36393f;
+  display: flex;
+  align-items: left;
+  justify-content: left;
+  flex-direction: column;
+  text-align: center;
+  color: #ffffff;
+}
+
+.submain {
   width: 100%;
   position: relative;
   background-color: #36393f;

@@ -6,6 +6,7 @@
      padding-left: 0px;
      border-radius: 3px;
      background-color: #2f3136;
+     cursor: pointer;
 }
 .main:hover{
      background-color: #3d4047;
