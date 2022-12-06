@@ -1,16 +1,41 @@
 .main{
      margin: 5px;
-     padding: 7px;
      display: flex;
      flex-direction: row;
+     align-items: center;
+     padding-left: 0px;
      border-radius: 3px;
      background-color: #2f3136;
 }
 .main:hover{
      background-color: #3d4047;
 }
+.icon{
+     margin-left: 8px;
+     width: 24px;
+     height: 24px;
+}
 .channelName{
      display: flex;
      align-items: center;
-     margin-left: 10px;
+     margin-left: 5px;
+     padding: 7px;
+     color: rgb(190, 190, 190);
+}
+.category{
+     margin: 0;
+     color: white;
+     background: linear-gradient(to right, rgba(92, 92, 92, 0.63), rgba(63, 63, 63, 0.658));
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     position: relative;
+     width: 100%;
+     padding: 5px;
+     border-radius: 5px;
+}
+.announcement{
+     display: flex;
+     flex-direction: row;
+     align-items: center;
 }

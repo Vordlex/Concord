@@ -1,6 +1,5 @@
 import { connect } from "react-redux"
 import { Websocket_Reducers_Type } from "../reducers/websocket_redux"
-import "./App.css"
 import Guilds from "./Components/Guilds/guilds"
 import LeftTab from "./Components/LeftTab/LeftTab"
 import MiddleTab from "./Components/MiddleTab/MiddleTab"
