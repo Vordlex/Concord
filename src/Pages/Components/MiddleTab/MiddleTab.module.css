@@ -4,8 +4,8 @@
   position: relative;
   background-color: #36393f;
   display: flex;
-  align-items: left;
-  justify-content: left;
+  align-items: center;
+  justify-content: end;
   flex-direction: column;
   text-align: center;
   color: #ffffff;

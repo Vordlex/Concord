@@ -1,9 +1,9 @@
 import styles from "./message.module.css";
 import { useState } from "react";
-import Embed from "../Embed/embed";
-import { embed_create } from "../../../../types/embed_create"
-import { attachments } from "../../../../types/generics/message";
-import Attachment from "../Atachment/attachment";
+import Embed from "../../Embed/embed";
+import { embed_create } from "../../../../../types/embed_create"
+import { attachments } from "../../../../../types/generics/message";
+import Attachment from "../../Atachment/attachment";
 
 const Message = (message: any) => {
   const [imageFormat, setImageFormat] = useState("webp");

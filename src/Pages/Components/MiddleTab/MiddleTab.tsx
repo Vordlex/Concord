@@ -1,8 +1,8 @@
 import { connect } from "react-redux"
 import { messages } from "../../../../types/messages_type"
 import styles from "./MiddleTab.module.css"
-import Message from "./message"
-import InputText from "./InputText"
+import Message from "./Message/message"
+import InputText from "./Input/InputText"
 
 const MiddleTab = ({ messages_redux }: { messages_redux: messages[] }) => {
   return (
