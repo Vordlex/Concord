@@ -1,7 +1,7 @@
+.imageDiv{
+     display: flex;
+     overflow-anchor: none;
+}
 .image{
      border-radius: 4px;
-     max-width: 60%;
-     min-width: 200px;
-     max-height: 400px;
-     position: relative;
 }

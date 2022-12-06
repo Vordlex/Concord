@@ -22,6 +22,8 @@
   text-align: center;
   color: #ffffff;
   overflow-y: scroll;
+  overflow-anchor: none;
+  flex: 1 1 auto;
 }
 
 .message {

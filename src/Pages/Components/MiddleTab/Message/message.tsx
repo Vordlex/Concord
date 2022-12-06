@@ -7,6 +7,7 @@ import Attachment from "../../Atachment/attachment";
 
 const Message = (message: any) => {
   const [imageFormat, setImageFormat] = useState("webp");
+
   return (
     <div
       className={styles.message}

@@ -20,4 +20,5 @@
 }
 .content{
     text-align: left;
+    white-space: break-spaces;
 }
