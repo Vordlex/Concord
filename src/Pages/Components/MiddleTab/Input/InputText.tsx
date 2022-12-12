@@ -38,7 +38,7 @@ const InputText = (...props: Array<{ channel: string }>) => {
         <input
           onChange={(e) => {
             setValue(e.target.value)
-            if (e.target.value != ""){ setCantSend(false); return }
+            if (e.target.value !== ""){ setCantSend(false); return }
             setCantSend(true)
           }}
           value={value}
