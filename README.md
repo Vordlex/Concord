@@ -56,8 +56,11 @@ Builds the Electron app package for production to the `dist` folder.
 `Refactor:` Utilizado na refatoração de código mas que não altere sua funcionalidade.
 
 `Style:` Utilizado quando feita uma alteração no estilo e formatação do código.
+
 `Chore:` Utilizado na atualização para mudanças em ferramentas, configurações e bibliotecas. Atualizações que não ocasionam em alteração no código de produção.
+
 `Doc:` Utilizado quando é adicionado ou atualizado alguma documentação no projeto.
+
 `Test:` Utilizado quando feita qualquer alteração em relação aos testes do projeto.
 
 ## Many thanks to the following articles!
