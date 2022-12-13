@@ -47,21 +47,21 @@ Builds the Electron app package for production to the `dist` folder.
 
 <hr>
 
-## tags para melhor entendimento dos commit e código
+## tags for better understanding of commit and code
 
-`Feat:` Utilizado quando feita qualquer adição ao código.O foco dele é ser usado quando houver uma nova implementação de funcionalidade no sistema.
+`Feat:` Used when any addition to the code is made. 
 
-`Fix:` Utilizado quando existem erros no código que estão causando bugs.
+`Fix:` Used when there are errors in the code that are causing bugs.
 
-`Refactor:` Utilizado na refatoração de código mas que não altere sua funcionalidade.
+`Refactor:` Used in code refactoring but does not change its functionality.
 
-`Style:` Utilizado quando feita uma alteração no estilo e formatação do código.
+`Style:` Used when you make a change to the style and formatting of the code.
 
-`Chore:` Utilizado na atualização para mudanças em ferramentas, configurações e bibliotecas. Atualizações que não ocasionam em alteração no código de produção.
+`Chore:` Used in updating for changes to tools, settings, and libraries. Updates that do not cause a change in production code.
 
-`Doc:` Utilizado quando é adicionado ou atualizado alguma documentação no projeto.
+`Doc:` Used when some documentation is added or updated in the project.
 
-`Test:` Utilizado quando feita qualquer alteração em relação aos testes do projeto.
+`Test:` Used when any change is made to the project tests.
 
 ## Many thanks to the following articles!
 
