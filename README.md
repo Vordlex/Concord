@@ -47,6 +47,22 @@ Builds the Electron app package for production to the `dist` folder.
 
 <hr>
 
+## tags for better understanding of commit and code
+
+`Feat:` Used when any addition to the code is made. 
+
+`Fix:` Used when there are errors in the code that are causing bugs.
+
+`Refactor:` Used in code refactoring but does not change its functionality.
+
+`Style:` Used when you make a change to the style and formatting of the code.
+
+`Chore:` Used in updating for changes to tools, settings, and libraries. Updates that do not cause a change in production code.
+
+`Doc:` Used when some documentation is added or updated in the project.
+
+`Test:` Used when any change is made to the project tests.
+
 ## Many thanks to the following articles!
 
 - [⚡️ From React to an Electron app ready for production](https://medium.com/@kitze/%EF%B8%8F-from-react-to-an-electron-app-ready-for-production-a0468ecb1da3)
