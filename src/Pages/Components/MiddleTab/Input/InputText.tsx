@@ -1,5 +1,6 @@
 import { useState } from "react"
 import styles from "./InputText.module.css"
+import token from "../../../../storage"
 
 const InputText = (...props: Array<{ channel: string }>) => {
   const [value, setValue] = useState("")
@@ -18,7 +19,7 @@ const InputText = (...props: Array<{ channel: string }>) => {
               headers: {
                 accept: "*/*",
                 "accept-language": "pt-BR",
-                authorization: process.env.REACT_APP_DISCORD_TOKEN as string,
+                authorization: token,
                 "content-type": "application/json",
                 "sec-fetch-dest": "empty",
                 "sec-fetch-mode": "cors",

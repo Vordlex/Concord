@@ -1,4 +1,5 @@
 import { messages } from "../../types/messages_type"
+import token from '../storage'
 import store from "../store"
 
 const fetchMessages = async (channelId: string) => {
@@ -9,7 +10,7 @@ const fetchMessages = async (channelId: string) => {
         {
           headers: {
             accept: "*/*",
-            authorization: process.env.REACT_APP_DISCORD_TOKEN as string,
+            authorization: token,
           },
           referrer: "https://discord.com/channels/@me",
           referrerPolicy: "strict-origin-when-cross-origin",
